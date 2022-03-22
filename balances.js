@@ -48,9 +48,10 @@ module.exports.createBalances = async data => {
 
     closingBalances.push({
       wallet: key,
-      tokenIds
+      tokenIds,
+      balance: tokenIds.length
     });
   }
 
-  return closingBalances.filter(b => b.tokenIds.length > 0);
+  return closingBalances.filter(b => b.balance > 0);
 };
